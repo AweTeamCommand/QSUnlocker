@@ -1,0 +1,110 @@
+{
+    "shell": {
+        "default": "explorer.exe",
+        "registry_path": "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon",
+        "registry_key": "Shell"
+    },
+    "sethc": {
+        "system32_path": "C:\\Windows\\System32",
+        "sethc_file": "sethc.exe",
+        "backup_suffix": ".bak",
+        "replace_with": "cmd.exe"
+    },
+    "processes": {
+        "critical_threshold": 50,
+        "suspicious_threshold": 20,
+        "update_interval": 2000,
+        "critical_names": [
+            "lsass.exe",
+            "csrss.exe",
+            "smss.exe",
+            "wininit.exe",
+            "services.exe",
+            "winlogon.exe",
+            "svchost.exe"
+        ],
+        "suspicious_names": [
+            "powershell.exe",
+            "cmd.exe",
+            "mshta.exe",
+            "wscript.exe",
+            "cscript.exe",
+            "regsvr32.exe",
+            "rundll32.exe"
+        ]
+    },
+    "restrictions": [
+        {
+            "name": "Debugger: Image File Execution Options",
+            "description": "Перехват запуска процессов через IFEO Debugger",
+            "registry_path": "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options",
+            "action": "remove_debugger"
+        },
+        {
+            "name": "DisableTaskMgr",
+            "description": "Отключение Диспетчера задач через реестр",
+            "registry_path": "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
+            "registry_key": "DisableTaskMgr",
+            "action": "delete_value"
+        },
+        {
+            "name": "DisableRegistryTools",
+            "description": "Блокировка редактора реестра",
+            "registry_path": "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System",
+            "registry_key": "DisableRegistryTools",
+            "action": "delete_value"
+        },
+        {
+            "name": "NoRun",
+            "description": "Скрытие строки Выполнить из меню Пуск",
+            "registry_path": "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+            "registry_key": "NoRun",
+            "action": "delete_value"
+        },
+        {
+            "name": "NoControlPanel",
+            "description": "Блокировка открытия Панели управления",
+            "registry_path": "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+            "registry_key": "NoControlPanel",
+            "action": "delete_value"
+        },
+        {
+            "name": "DisableCMD",
+            "description": "Запрет запуска командной строки",
+            "registry_path": "SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+            "registry_key": "DisableCMD",
+            "action": "delete_value"
+        }
+    ],
+    "autostart_registry": [
+        "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run",
+        "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce"
+    ],
+    "swap_mouse": {
+        "description": "SwapMouseButton меняет кнопки мыши местами"
+    },
+    "theme": {
+        "bg": "#1e1e1e",
+        "fg": "#ffffff",
+        "accent": "#3d8bcd",
+        "btn_bg": "#2d2d2d",
+        "btn_fg": "#ffffff",
+        "entry_bg": "#2d2d2d",
+        "entry_fg": "#ffffff",
+        "highlight": "#3d8bcd",
+        "danger": "#e05252",
+        "warning": "#e0a040",
+        "success": "#52a060",
+        "header_bg": "#252526",
+        "sidebar_bg": "#252526",
+        "tab_active": "#3d8bcd",
+        "tab_inactive": "#2d2d2d"
+    },
+    "window": {
+        "title": "QSUnlocker",
+        "width": 900,
+        "height": 600,
+        "min_width": 700,
+        "min_height": 500
+    }
+}
